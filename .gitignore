@@ -1,0 +1,8 @@
+*.[od]
+*.sol
+*.desktop
+/locale
+/neverball
+/neverputt
+/mapc
+/contrib/curve
