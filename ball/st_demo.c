@@ -497,6 +497,10 @@ static void demo_play_stick(int id, int a, float v, int bump)
     if (!bump)
         return;
 
+#ifdef __PLAYBOOK__
+    return;
+#endif
+
     if (config_tst_d(CONFIG_JOYSTICK_AXIS_Y, a))
     {
         if (v < 0) set_speed(+1);

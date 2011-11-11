@@ -48,8 +48,8 @@ const struct tex_env tex_env_shadow = {
     tex_env_conf_shadow,
     2,
     {
-        { GL_TEXTURE0, TEX_STAGE_SHADOW },
-        { GL_TEXTURE1, TEX_STAGE_TEXTURE }
+        { GL_TEXTURE0, TEX_STAGE_TEXTURE },
+        { GL_TEXTURE1, TEX_STAGE_SHADOW }
     }
 };
 
@@ -57,9 +57,9 @@ const struct tex_env tex_env_shadow_clip = {
     tex_env_conf_shadow,
     3,
     {
-        { GL_TEXTURE0, TEX_STAGE_SHADOW },
-        { GL_TEXTURE1, TEX_STAGE_CLIP },
-        { GL_TEXTURE2, TEX_STAGE_TEXTURE }
+        { GL_TEXTURE0, TEX_STAGE_TEXTURE },
+        { GL_TEXTURE1, TEX_STAGE_SHADOW },
+        { GL_TEXTURE2, TEX_STAGE_CLIP }
     }
 };
 
@@ -67,8 +67,8 @@ const struct tex_env tex_env_pose = {
     tex_env_conf_pose,
     2,
     {
-        { GL_TEXTURE0, TEX_STAGE_SHADOW },
-        { GL_TEXTURE1, TEX_STAGE_TEXTURE }
+        { GL_TEXTURE0, TEX_STAGE_TEXTURE },
+        { GL_TEXTURE1, TEX_STAGE_SHADOW }
     }
 };
 
@@ -508,7 +508,7 @@ void back_draw_easy(void)
 static GLuint shad_text;
 static GLuint clip_text;
 
-static GLubyte clip_data[] = { 0xff, 0xff, 0x0, 0x0 };
+static GLubyte clip_data[] = { 0xff, 0xff, 0xff, 0xff };
 
 void shad_init(void)
 {
@@ -526,8 +526,8 @@ void shad_init(void)
     glBindTexture(GL_TEXTURE_2D, clip_text);
 
     glTexImage2D(GL_TEXTURE_2D, 0,
-                 GL_LUMINANCE_ALPHA, 1, 2, 0,
-                 GL_LUMINANCE_ALPHA, GL_UNSIGNED_BYTE, clip_data);
+                 GL_ALPHA, 2, 2, 0,
+                 GL_ALPHA, GL_UNSIGNED_BYTE, clip_data);
 
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
@@ -551,8 +551,8 @@ void shad_draw_set(void)
 
         if (tex_env_stage(TEX_STAGE_CLIP))
         {
-            glBindTexture(GL_TEXTURE_2D, clip_text);
             glEnable(GL_TEXTURE_2D);
+            glBindTexture(GL_TEXTURE_2D, clip_text);
         }
 
         tex_env_stage(TEX_STAGE_TEXTURE);

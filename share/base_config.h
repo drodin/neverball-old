@@ -25,6 +25,13 @@
 
 /*---------------------------------------------------------------------------*/
 
+#ifdef __PLAYBOOK__
+#define VERSION "1.5.5"
+#define CONFIG_USER ""
+#define CONFIG_DATA "./shared/misc/neverball/data"
+#define CONFIG_LOCALE "./shared/misc/neverball/locale"
+#endif
+
 #ifndef VERSION
 #define VERSION "unknown"
 #endif
@@ -78,8 +85,13 @@
 #define FMODE_WB "w"
 #endif
 
+#ifndef __PLAYBOOK__
 #define AUDIO_BUFF_HI 2048
 #define AUDIO_BUFF_LO 1024
+#else
+#define AUDIO_BUFF_HI 4096
+#define AUDIO_BUFF_LO 2048
+#endif
 
 #define JOY_VALUE(k) ((float) (k) / ((k) < 0 ? 32768 : 32767))
 

@@ -37,21 +37,18 @@ void item_color(const struct v_item *hp, float *c)
             c[0] = 1.0f;
             c[1] = 1.0f;
             c[2] = 0.2f;
-            c[3] = 1.0f;
         }
         if (hp->n >= 5)
         {
             c[0] = 1.0f;
             c[1] = 0.2f;
             c[2] = 0.2f;
-            c[3] = 1.0f;
         }
         if (hp->n >= 10)
         {
             c[0] = 0.2f;
             c[1] = 0.2f;
             c[2] = 1.0f;
-            c[3] = 1.0f;
         }
         break;
 
@@ -60,7 +57,6 @@ void item_color(const struct v_item *hp, float *c)
         c[0] = 0.00f;
         c[1] = 0.51f;
         c[2] = 0.80f;
-        c[3] = 1.00f;
 
         break;
 
@@ -69,7 +65,6 @@ void item_color(const struct v_item *hp, float *c)
         c[0] = 1.00f;
         c[1] = 0.76f;
         c[2] = 0.00f;
-        c[3] = 1.00f;
 
         break;
 
@@ -78,7 +73,6 @@ void item_color(const struct v_item *hp, float *c)
         c[0] = 1.0f;
         c[1] = 1.0f;
         c[2] = 1.0f;
-        c[3] = 1.0f;
 
         break;
     }
@@ -103,7 +97,7 @@ void item_draw(struct s_rend *rend,
                const GLfloat *M, float t)
 {
     struct s_draw *draw = NULL;
-    float c[4];
+    float c[3];
 
     switch (hp->t)
     {
@@ -114,7 +108,7 @@ void item_draw(struct s_rend *rend,
 
     item_color(hp, c);
 
-    glColor4f(c[0], c[1], c[2], c[3]);
+    glColor4f(c[0], c[1], c[2], 1.0f);
 
     glDepthMask(GL_FALSE);
     {

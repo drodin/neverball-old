@@ -25,6 +25,9 @@
 
 #ifdef __APPLE__
 #include <OpenGL/gl.h>
+#elif defined(__PLAYBOOK__)
+#include <GLES/gl.h>
+#include <GLES/glext.h>
 #else
 #include <GL/gl.h>
 #endif
@@ -69,7 +72,7 @@
 #define GL_ELEMENT_ARRAY_BUFFER       0x8893
 #endif
 
-#ifndef GL_STATC_DRAW
+#ifndef GL_STATIC_DRAW
 #define GL_STATIC_DRAW                0x88E4
 #endif
 
@@ -78,15 +81,27 @@
 #endif
 
 #ifndef GL_POINT_SPRITE
+#ifdef GL_POINT_SPRITE_OES
+#define GL_POINT_SPRITE GL_POINT_SPRITE_OES
+#else
 #define GL_POINT_SPRITE               0x8861
+#endif
 #endif
 
 #ifndef GL_COORD_REPLACE
+#ifdef GL_COORD_REPLACE_OES
+#define GL_COORD_REPLACE GL_COORD_REPLACE_OES
+#else
 #define GL_COORD_REPLACE              0x8862
 #endif
+#endif
 
-#ifndef GL_POINT_DISTANCE_ATTENUATIAN
+#ifndef GL_POINT_DISTANCE_ATTENUATION
 #define GL_POINT_DISTANCE_ATTENUATION 0x8129
+#endif
+
+#ifdef GL_GENERATE_MIPMAP
+#define GL_GENERATE_MIPMAP_SGIS GL_GENERATE_MIPMAP
 #endif
 
 /*---------------------------------------------------------------------------*/

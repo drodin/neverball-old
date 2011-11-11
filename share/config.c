@@ -115,11 +115,19 @@ static struct
     const int   def;
     int         cur;
 } option_d[] = {
+#ifndef __PLAYBOOK__
     { &CONFIG_FULLSCREEN,   "fullscreen",   0 },
     { &CONFIG_WIDTH,        "width",        800 },
     { &CONFIG_HEIGHT,       "height",       600 },
     { &CONFIG_STEREO,       "stereo",       0 },
     { &CONFIG_CAMERA,       "camera",       0 },
+#else
+    { &CONFIG_FULLSCREEN,   "fullscreen",   1 },
+    { &CONFIG_WIDTH,        "width",        1024 },
+    { &CONFIG_HEIGHT,       "height",       600 },
+    { &CONFIG_STEREO,       "stereo",       1 },
+    { &CONFIG_CAMERA,       "camera",       1 },
+#endif
     { &CONFIG_TEXTURES,     "textures",     1 },
     { &CONFIG_REFLECTION,   "reflection",   1 },
     { &CONFIG_MULTISAMPLE,  "multisample",  0 },

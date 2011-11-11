@@ -37,7 +37,7 @@ struct part_vary
 struct part_draw
 {
     GLfloat p[3];             /* Position                                    */
-    GLfloat c[3];             /* Color                                       */
+    GLfloat c[4];             /* Color                                       */
     GLfloat t;                /* Time until death. Doubles as opacity.       */
 };
 
@@ -155,7 +155,9 @@ void part_init(void)
 
 void part_free(void)
 {
+#ifdef PARTICLEVBO
     glDeleteBuffers_(1, &coin_vbo);
+#endif
 
     sol_free_mtrl(&coin_draw_mtrl);
 }
@@ -175,6 +177,7 @@ void part_burst(const float *p, const float *c)
             coin_draw[i].c[0] = c[0];
             coin_draw[i].c[1] = c[1];
             coin_draw[i].c[2] = c[2];
+            coin_draw[i].c[3] = 1.0f;
 
             coin_draw[i].p[0] = p[0];
             coin_draw[i].p[1] = p[1];
