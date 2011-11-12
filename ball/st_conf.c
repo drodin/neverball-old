@@ -300,8 +300,13 @@ static int conf_gui(void)
 
         gui_space(id);
 
+#ifndef __TABLET__
         conf_slider(id, _("Mouse sensitivity"), CONF_MOUSE_SENSE, mouse,
                     mouse_id, ARRAYSIZE(mouse_id));
+#else
+        conf_slider(id, _("Tilt resistance"), CONF_MOUSE_SENSE, mouse,
+                    mouse_id, ARRAYSIZE(mouse_id));
+#endif
 
         gui_space(id);
 
@@ -367,11 +372,13 @@ static int conf_video_action(int tok, int val)
         goto_state(&st_null);
         config_set_d(CONFIG_REFLECTION, val);
 
+#ifndef __TABLET__
         if (val)
         {
             /* Ensure we have a stencil buffer. */
             r = video_init(TITLE, ICON);
         }
+#endif
 
         goto_state(&st_conf_video);
         break;
@@ -442,6 +449,7 @@ static int conf_video_gui(void)
 
         conf_header(id, _("Graphics Options"), CONF_VIDEO_BACK);
 
+#ifndef __TABLET__
         conf_state(id, _("Resolution"), resolution, CONF_VIDEO_RESOLUTION);
 
         conf_toggle(id, _("Fullscreen"), CONF_VIDEO_FULLSCREEN, f,
@@ -456,15 +464,20 @@ static int conf_video_gui(void)
                     multisample_opts, ARRAYSIZE(multisample_opts));
 
         gui_space(id);
+#endif
 
+#ifndef __PLAYBOOK__
         conf_toggle(id, _("Reflection"), CONF_VIDEO_REFLECTION, r,
                     _("On"), 1, _("Off"), 0);
+#endif
 
         conf_toggle(id, _("Background"), CONF_VIDEO_BACKGROUND, b,
                     _("On"), 1, _("Off"), 0);
 
+#ifndef __PLAYBOOK__
         conf_toggle(id, _("Shadow"), CONF_VIDEO_SHADOW, s,
                     _("On"), 1, _("Off"), 0);
+#endif
 
         gui_layout(id, 0, 0);
     }

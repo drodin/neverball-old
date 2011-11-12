@@ -1902,7 +1902,7 @@ int gui_stick(int id, int a, float v, int bump)
 {
     int jd = 0;
 
-#ifdef __PLAYBOOK__
+#ifdef __TABLET__
     return 0;
 #endif
 

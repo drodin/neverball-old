@@ -113,11 +113,18 @@ static int help_menu(int id)
 
 static int page_rules(int id)
 {
+#ifndef __TABLET__
     const char *s0 = _(
         "Move the mouse or joystick\\"
         "or use keyboard arrows to\\"
         "tilt the floor causing the\\"
         "ball to roll.\\");
+#else
+    const char *s0 = _(
+    	"Lean your tablet from side\\"
+    	"to side to tilt the floor\\"
+    	"causing the ball to roll.\\");
+#endif
     const char *s1 = _(
         "Roll over coins to collect\\"
         "them.  Collect coins to\\"
@@ -176,6 +183,7 @@ static int page_rules(int id)
 
 static int page_controls(int id)
 {
+#ifndef __TABLET__
     const char *s4 = _("Left and right mouse buttons rotate the view.");
     const char *s5 = _("Hold Shift for faster view rotation.");
     const char *s6 = _("Pause / Release Pointer");
@@ -191,9 +199,18 @@ static int page_controls(int id)
     const char *k3 = pretty_keyname((SDLKey) config_get_d(CONFIG_KEY_CAMERA_2));
     const char *k4 = pretty_keyname((SDLKey) config_get_d(CONFIG_KEY_CAMERA_3));
     const char *k6 = pretty_keyname(SDLK_F10);
+#else
+    const char *s4 = _("Swipe from right to left over the bottom bezel:");
+    const char *s5 = _("to pause/exit game, to go to the previous menu");
+    const char *s6 = _("Tap left/right part of the screen to");
+    const char *s7 = _("rotate the camera correspondingly");
+    const char *s8 = _("Swipe down from the top bezel");
+    const char *s9 = _("to switch the camera mode");
+#endif
 
     int jd;
 
+#ifndef __TABLET__
     gui_space(id);
 
     if ((jd = gui_harray(id)))
@@ -226,11 +243,23 @@ static int page_controls(int id)
         gui_label(jd, sC, GUI_SML, GUI_SE, gui_wht, gui_wht);
         gui_label(jd, k6, GUI_SML, GUI_SW, gui_yel, gui_yel);
     }
+#endif
 
     gui_space(id);
 
     gui_label(id, s4, GUI_SML, GUI_TOP, gui_wht, gui_wht);
     gui_label(id, s5, GUI_SML, GUI_BOT, gui_wht, gui_wht);
+#ifdef __TABLET__
+    gui_space(id);
+
+    gui_label(id, s6, GUI_SML, GUI_TOP, gui_wht, gui_wht);
+    gui_label(id, s7, GUI_SML, GUI_BOT, gui_wht, gui_wht);
+
+    gui_space(id);
+
+    gui_label(id, s8, GUI_SML, GUI_TOP, gui_wht, gui_wht);
+    gui_label(id, s9, GUI_SML, GUI_BOT, gui_wht, gui_wht);
+#endif
 
     return id;
 }

@@ -497,7 +497,7 @@ static void demo_play_stick(int id, int a, float v, int bump)
     if (!bump)
         return;
 
-#ifdef __PLAYBOOK__
+#ifdef __TABLET__
     return;
 #endif
 

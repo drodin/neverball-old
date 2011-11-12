@@ -121,13 +121,6 @@ static struct
     { &CONFIG_HEIGHT,       "height",       600 },
     { &CONFIG_STEREO,       "stereo",       0 },
     { &CONFIG_CAMERA,       "camera",       0 },
-#else
-    { &CONFIG_FULLSCREEN,   "fullscreen",   1 },
-    { &CONFIG_WIDTH,        "width",        1024 },
-    { &CONFIG_HEIGHT,       "height",       600 },
-    { &CONFIG_STEREO,       "stereo",       1 },
-    { &CONFIG_CAMERA,       "camera",       1 },
-#endif
     { &CONFIG_TEXTURES,     "textures",     1 },
     { &CONFIG_REFLECTION,   "reflection",   1 },
     { &CONFIG_MULTISAMPLE,  "multisample",  0 },
@@ -139,6 +132,24 @@ static struct
     { &CONFIG_MOUSE_SENSE,  "mouse_sense",  300 },
     { &CONFIG_MOUSE_INVERT, "mouse_invert", 0 },
     { &CONFIG_VSYNC,        "vsync",        1 },
+#else
+    { &CONFIG_FULLSCREEN,   "fullscreen",   1 },
+    { &CONFIG_WIDTH,        "width",        1024 },
+    { &CONFIG_HEIGHT,       "height",       600 },
+    { &CONFIG_STEREO,       "stereo",       1 },
+    { &CONFIG_CAMERA,       "camera",       0 },
+    { &CONFIG_TEXTURES,     "textures",     1 },
+    { &CONFIG_REFLECTION,   "reflection",   0 },
+    { &CONFIG_MULTISAMPLE,  "multisample",  0 },
+    { &CONFIG_MIPMAP,       "mipmap",       1 },
+    { &CONFIG_ANISO,        "aniso",        0 },
+    { &CONFIG_BACKGROUND,   "background",   1 },
+    { &CONFIG_SHADOW,       "shadow",       0 },
+    { &CONFIG_AUDIO_BUFF,   "audio_buff",   AUDIO_BUFF_HI },
+    { &CONFIG_MOUSE_SENSE,  "mouse_sense",  350 },
+    { &CONFIG_MOUSE_INVERT, "mouse_invert", 0 },
+    { &CONFIG_VSYNC,        "vsync",        1 },
+#endif
 
     { &CONFIG_MOUSE_CAMERA_1,      "mouse_camera_1",      0 },
     { &CONFIG_MOUSE_CAMERA_2,      "mouse_camera_2",      0 },
@@ -178,7 +189,11 @@ static struct
     { &CONFIG_KEY_CAMERA_1,      "key_camera_1",      SDLK_F1 },
     { &CONFIG_KEY_CAMERA_2,      "key_camera_2",      SDLK_F2 },
     { &CONFIG_KEY_CAMERA_3,      "key_camera_3",      SDLK_F3 },
+#ifndef __PLAYBOOK__
     { &CONFIG_KEY_CAMERA_TOGGLE, "key_camera_toggle", SDLK_e },
+#else
+    { &CONFIG_KEY_CAMERA_TOGGLE, "key_camera_toggle", SDLK_MENU },
+#endif
     { &CONFIG_KEY_CAMERA_R,      "key_camera_r",      SDLK_d },
     { &CONFIG_KEY_CAMERA_L,      "key_camera_l",      SDLK_s },
     { &CONFIG_KEY_FORWARD,       "key_forward",       SDLK_UP },

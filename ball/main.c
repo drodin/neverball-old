@@ -203,7 +203,7 @@ static int loop(void)
             break;
 
         case SDL_ACTIVEEVENT:
-            if (e.active.state == SDL_APPINPUTFOCUS)
+            if (e.active.state & SDL_APPINPUTFOCUS)
                 if (e.active.gain == 0 && video_get_grab())
                     goto_state(&st_pause);
             break;

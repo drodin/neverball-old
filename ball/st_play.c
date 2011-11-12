@@ -390,7 +390,14 @@ static void play_loop_timer(int id, float dt)
 
 static void play_loop_point(int id, int x, int y, int dx, int dy)
 {
+#ifndef __TABLET__
     game_set_pos(dx, dy);
+#else
+    if (x < config_get_d(CONFIG_WIDTH)/2)
+    	VIEWR_SET_L(+1);
+    else
+    	VIEWR_SET_R(-1);
+#endif
 }
 
 static void play_loop_stick(int id, int a, float v, int bump)
@@ -411,6 +418,7 @@ static void play_loop_stick(int id, int a, float v, int bump)
 
 static int play_loop_click(int b, int d)
 {
+#ifndef __TABLET__
     if (d)
     {
         if (config_tst_d(CONFIG_MOUSE_CAMERA_R, b))
@@ -427,6 +435,12 @@ static int play_loop_click(int b, int d)
         if (config_tst_d(CONFIG_MOUSE_CAMERA_L, b))
             VIEWR_SET_L(0);
     }
+#else
+    if (!d) {
+        VIEWR_SET_R(0);
+        VIEWR_SET_L(0);
+    }
+#endif
 
     return 1;
 }

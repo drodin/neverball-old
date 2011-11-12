@@ -903,12 +903,20 @@ void game_set_goal(void)
 
 void game_set_x(float k)
 {
+#ifndef __TABLET__
     input_set_x(-ANGLE_BOUND * k);
+#else
+    input_set_x(ANGLE_BOUND * (k + 0.5f) * config_get_d(CONFIG_MOUSE_SENSE)/100);
+#endif
 }
 
 void game_set_z(float k)
 {
+#ifndef __TABLET__
     input_set_z(+ANGLE_BOUND * k);
+#else
+    input_set_z(+ANGLE_BOUND * k  * config_get_d(CONFIG_MOUSE_SENSE)/100);
+#endif
 }
 
 void game_set_ang(float x, float z)
