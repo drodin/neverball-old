@@ -28,8 +28,7 @@
 #ifdef __PLAYBOOK__
 #define VERSION "1.5.5"
 #define CONFIG_USER ""
-#define CONFIG_DATA "./shared/misc/neverball/data"
-#define CONFIG_LOCALE "./shared/misc/neverball/locale"
+#define CONFIG_DATA "./app/native/data"
 #endif
 
 #ifndef VERSION

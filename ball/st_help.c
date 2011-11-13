@@ -178,6 +178,17 @@ static int page_rules(int id)
 
         gui_filler(jd);
     }
+
+#ifdef __PLAYBOOK__
+    const char *b1 = _("Playbook port by Dmitry Rodin (drodin). Distributed under the GNU GPL.");
+    const char *b2 = _("Take a look at http://neverball.drodin.com for more information.");
+
+    gui_space(id);
+
+    gui_label(id, b1, GUI_SML, GUI_TOP, gui_wht, gui_wht);
+    gui_label(id, b2, GUI_SML, GUI_BOT, gui_wht, gui_wht);
+#endif
+
     return id;
 }
 

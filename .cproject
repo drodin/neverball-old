@@ -39,6 +39,7 @@
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/../target-override/usr/include"/>
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/usr/include/freetype2"/>
 								</option>
+								<option id="com.qnx.qcc.option.compiler.optlevel.128197540" name="Optimization Level" superClass="com.qnx.qcc.option.compiler.optlevel" value="com.qnx.qcc.option.compiler.optlevel.none" valueType="enumerated"/>
 								<inputType id="com.qnx.qcc.inputType.compiler.963797227" superClass="com.qnx.qcc.inputType.compiler"/>
 							</tool>
 							<tool id="com.qnx.qcc.tool.assembler.12563691" name="QCC Assembler" superClass="com.qnx.qcc.tool.assembler">
@@ -53,10 +54,10 @@
 									<listOptionValue builtIn="false" value="png"/>
 									<listOptionValue builtIn="false" value="jpeg"/>
 									<listOptionValue builtIn="false" value="freetype"/>
+									<listOptionValue builtIn="false" value="GLESv1_CM"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_ttf/Device-Debug/libSDL_ttf.a}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Tremor/Device-Debug/libTremor.a}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libogg/Device-Debug/liblibogg.a}&quot;"/>
-									<listOptionValue builtIn="false" value="GLESv1_CM"/>
 								</option>
 								<option id="com.qnx.qcc.option.linker.security.1861452125" name="Enhanced Security (-Wl,-z,relro -Wl,-z,now)" superClass="com.qnx.qcc.option.linker.security" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.linker.libraryPaths.1080688883" name="Library Paths (-L)" superClass="com.qnx.qcc.option.linker.libraryPaths" valueType="libPaths">
@@ -103,15 +104,26 @@
 								<option id="com.qnx.qcc.option.compiler.security.1338251683" name="Enhanced Security (-fstack-protector-all)" superClass="com.qnx.qcc.option.compiler.security" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.compiler.defines.1130243753" name="Defines (-D)" superClass="com.qnx.qcc.option.compiler.defines" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_FORTIFY_SOURCE=2"/>
+									<listOptionValue builtIn="false" value="__TABLET__"/>
+									<listOptionValue builtIn="false" value="__PLAYBOOK__"/>
+									<listOptionValue builtIn="false" value="__QNXNTO__"/>
+									<listOptionValue builtIn="false" value="ENABLE_NLS=0"/>
 								</option>
-								<option id="com.qnx.qcc.option.compiler.pie.149918559" name="Position Independent Executable (-fPIE)" superClass="com.qnx.qcc.option.compiler.pie" value="true" valueType="boolean"/>
+								<option id="com.qnx.qcc.option.compiler.pie.149918559" name="Position Independent Executable (-fPIE)" superClass="com.qnx.qcc.option.compiler.pie" value="false" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.compiler.includePath.156877370" name="Include Directories (-I)" superClass="com.qnx.qcc.option.compiler.includePath" valueType="includePath">
-									<listOptionValue builtIn="false" value="${QNX_TARGET}/usr/include/freetype2"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/share}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_ttf}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Tremor/trunk}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libogg/trunk/include}&quot;"/>
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/../target-override/usr/include"/>
+									<listOptionValue builtIn="false" value="${QNX_TARGET}/usr/include/freetype2"/>
 								</option>
+								<option id="com.qnx.qcc.option.compile.debug.904917515" name="Debug (-g)" superClass="com.qnx.qcc.option.compile.debug" value="false" valueType="boolean"/>
 								<inputType id="com.qnx.qcc.inputType.compiler.1260353176" superClass="com.qnx.qcc.inputType.compiler"/>
 							</tool>
 							<tool id="com.qnx.qcc.tool.assembler.372339927" name="QCC Assembler" superClass="com.qnx.qcc.tool.assembler">
+								<option id="com.qnx.qcc.option.assembler.debug.1462384373" name="Debug (-g)" superClass="com.qnx.qcc.option.assembler.debug" value="false" valueType="boolean"/>
 								<inputType id="com.qnx.qcc.inputType.assembler.1814828030" superClass="com.qnx.qcc.inputType.assembler"/>
 							</tool>
 							<tool id="com.qnx.qcc.tool.linker.377554557" name="QCC Linker" superClass="com.qnx.qcc.tool.linker">
@@ -122,17 +134,18 @@
 									<listOptionValue builtIn="false" value="jpeg"/>
 									<listOptionValue builtIn="false" value="freetype"/>
 									<listOptionValue builtIn="false" value="GLESv1_CM"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_ttf/Device-Debug/libSDL_ttf.a}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Tremor/Device-Debug/libTremor.a}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libogg/Device-Debug/liblibogg.a}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL_ttf/Device-Release/libSDL_ttf.a}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Tremor/Device-Release/libTremor.a}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libogg/Device-Release/liblibogg.a}&quot;"/>
 								</option>
 								<option id="com.qnx.qcc.option.linker.security.266572441" name="Enhanced Security (-Wl,-z,relro -Wl,-z,now)" superClass="com.qnx.qcc.option.linker.security" value="true" valueType="boolean"/>
-								<option id="com.qnx.qcc.option.linker.pie.1444471310" name="Position Independent Executable (-pie)" superClass="com.qnx.qcc.option.linker.pie" value="true" valueType="boolean"/>
+								<option id="com.qnx.qcc.option.linker.pie.1444471310" name="Position Independent Executable (-pie)" superClass="com.qnx.qcc.option.linker.pie" value="false" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.linker.libraryPaths.681322671" name="Library Paths (-L)" superClass="com.qnx.qcc.option.linker.libraryPaths" valueType="libPaths">
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/../target-override/${CPUVARDIR}/lib"/>
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/../target-override/${CPUVARDIR}/usr/lib"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL/Simulator}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/SDL/Device-Release}&quot;"/>
 								</option>
+								<option id="com.qnx.qcc.option.linker.debug.767453624" name="Debug (-g)" superClass="com.qnx.qcc.option.linker.debug" value="false" valueType="boolean"/>
 								<inputType id="com.qnx.qcc.inputType.linker.915593514" superClass="com.qnx.qcc.inputType.linker">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -292,10 +305,11 @@
 								<option id="com.qnx.qcc.option.compile.debug.948642152" name="Debug (-g)" superClass="com.qnx.qcc.option.compile.debug" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.compiler.security.1095105934" name="Enhanced Security (-fstack-protector-all)" superClass="com.qnx.qcc.option.compiler.security" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.compiler.defines.1334662724" name="Defines (-D)" superClass="com.qnx.qcc.option.compiler.defines" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="_FORTIFY_SOURCE=2"/>
+									<listOptionValue builtIn="false" value="__TABLET__"/>
 									<listOptionValue builtIn="false" value="__PLAYBOOK__"/>
 									<listOptionValue builtIn="false" value="__QNXNTO__"/>
 									<listOptionValue builtIn="false" value="ENABLE_NLS=0"/>
-									<listOptionValue builtIn="false" value="_FORTIFY_SOURCE=2"/>
 								</option>
 								<option id="com.qnx.qcc.option.compiler.includePath.1962501720" name="Include Directories (-I)" superClass="com.qnx.qcc.option.compiler.includePath" valueType="includePath">
 									<listOptionValue builtIn="false" value="${QNX_TARGET}/usr/include/freetype2"/>

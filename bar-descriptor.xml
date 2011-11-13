@@ -13,12 +13,12 @@
 
     <!-- The name that is displayed in the BlackBerry Tablet OS application installer. 
          May have multiple values for each language. See samples or xsd schema file. Optional. -->
-    <name>neverball</name>
+    <name>Neverball</name>
     
     <!-- A string value of the format <0-999>.<0-999>.<0-999> that represents application version which can be used to check for application upgrade. 
          Values can also be 1-part or 2-part. It is not necessary to have a 3-part value.
          An updated version of application must have a versionNumber value higher than the previous version. Required. -->
-    <versionNumber>1.0.0</versionNumber>
+    <versionNumber>1.5.5</versionNumber>
 
     <!-- Fourth digit segment of the package version. First three segments are taken from the 
          <versionNumber> element.  Must be an integer from 0 to 2^16-1 -->
@@ -29,7 +29,7 @@
 
     <!-- Description, displayed in the BlackBerry Tablet OS application installer.
          May have multiple values for each language. See samples or xsd schema file. Optional. -->
-    <description>The neverball application</description>
+    <description>Neverball</description>
 
     <!-- Copyright information. Optional. -->
     <!-- <copyright></copyright> -->
@@ -42,6 +42,8 @@
     <!-- <authorId>ABC1234YjsnUk235h</authorId> -->
    
     <initialWindow>
+        <aspectRatio>landscape</aspectRatio>
+        <autoOrients>false</autoOrients>
         <systemChrome>none</systemChrome>
         <transparent>false</transparent>
     </initialWindow>
@@ -50,6 +52,7 @@
     <category>core.games</category>
     <asset path="icon.png">icon.png</asset>
     <asset path="${QNX_TARGET}/../target-override/${CPUVARDIR}/usr/lib/libbps.so" type="Qnx/Elf">lib/libbps.so.1</asset>
+    <asset path="data_ball">data</asset>
     <configuration id="com.qnx.qcc.configuration.exe.debug.1537548112" name="Device-Debug">
        <platformArchitecture>armle-v7</platformArchitecture>
        <asset path="Device-Debug/neverball" entry="true" type="Qnx/Elf">neverball</asset>
@@ -58,6 +61,7 @@
     <configuration id="com.qnx.qcc.configuration.exe.release.514599729" name="Device-Release">
        <platformArchitecture>armle-v7</platformArchitecture>
        <asset path="Device-Release/neverball" entry="true" type="Qnx/Elf">neverball</asset>
+       <asset path="${workspace_loc:/SDL/Device-Release/libSDL.so}" type="Qnx/Elf">lib/libSDL.so</asset>
     </configuration>
     <configuration id="com.qnx.qcc.configuration.exe.profile.801851799" name="Device-Profile">
        <platformArchitecture>armle-v7</platformArchitecture>
@@ -71,7 +75,6 @@
        <platformArchitecture>x86</platformArchitecture>
        <asset path="Simulator/neverball" entry="true" type="Qnx/Elf">neverball</asset>
        <asset path="${workspace_loc:/SDL/Simulator/libSDL.so}" type="Qnx/Elf">lib/libSDL.so</asset>
-       <asset path="${workspace_loc:/GLESwrapper/Simulator/libGLESwrapper.so}" type="Qnx/Elf">lib/libGLESwrapper.so</asset>
     </configuration>
     <configuration id="com.qnx.qcc.configuration.exe.profile.447548987" name="Simulator-Profile">
        <platformArchitecture>x86</platformArchitecture>
@@ -92,7 +95,6 @@
 
     <!-- Request permission to execute native code.  Required for native applications. -->
     <action system="true">run_native</action>
-    <action>access_shared</action>
     
     <!--  The permissions requested by your application. -->
     <!--  <action>access_shared</action> -->
