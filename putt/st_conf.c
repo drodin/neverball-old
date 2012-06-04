@@ -158,6 +158,7 @@ static int conf_enter(struct state *st, struct state *prev)
             gui_start(jd, _("Back"),    GUI_SML, CONF_BACK, 0);
         }
 
+#ifndef __TABLET__
         gui_space(id);
 
         if ((jd = gui_harray(id)) &&
@@ -205,6 +206,7 @@ static int conf_enter(struct state *st, struct state *prev)
 
             gui_label(jd, _("Shadow"), GUI_SML, GUI_ALL, 0, 0);
         }
+#endif
 
         gui_space(id);
 

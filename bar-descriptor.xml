@@ -9,11 +9,11 @@
 
     <!-- A universally unique application identifier. Must be unique across all BlackBerry Tablet OS applications.
          Using a reverse DNS-style name as the id is recommended. (Eg. com.example.ExampleApplication.) Required. -->
-    <id>com.drodin.neverball</id>
+    <id>com.drodin.neverputt</id>
 
     <!-- The name that is displayed in the BlackBerry Tablet OS application installer. 
          May have multiple values for each language. See samples or xsd schema file. Optional. -->
-    <name>Neverball</name>
+    <name>Neverputt</name>
     
     <!-- A string value of the format <0-999>.<0-999>.<0-999> that represents application version which can be used to check for application upgrade. 
          Values can also be 1-part or 2-part. It is not necessary to have a 3-part value.
@@ -22,14 +22,14 @@
 
     <!-- Fourth digit segment of the package version. First three segments are taken from the 
          <versionNumber> element.  Must be an integer from 0 to 2^16-1 -->
-    <buildId>3</buildId>
+    <buildId>2</buildId>
                  
     <!-- A string value (such as "v1", "2.5", or "Alpha 1") that represents the version of the application, as it should be shown to users. Optional. -->
     <!-- <versionLabel></versionLabel> -->
 
     <!-- Description, displayed in the BlackBerry Tablet OS application installer.
          May have multiple values for each language. See samples or xsd schema file. Optional. -->
-    <description>Neverball</description>
+    <description>Neverputt</description>
 
     <!-- Copyright information. Optional. -->
     <!-- <copyright></copyright> -->
@@ -52,37 +52,37 @@
     <category>core.games</category>
     <asset path="icon.png">icon.png</asset>
     <asset path="${QNX_TARGET}/../target-override/${CPUVARDIR}/usr/lib/libbps.so" type="Qnx/Elf">lib/libbps.so.1</asset>
-    <asset path="data_ball">data</asset>
+    <asset path="data_putt">data</asset>
     <configuration id="com.qnx.qcc.configuration.exe.debug.1537548112" name="Device-Debug">
        <platformArchitecture>armle-v7</platformArchitecture>
-       <asset path="Device-Debug/neverball" entry="true" type="Qnx/Elf">neverball</asset>
+       <asset path="Device-Debug/neverputt" entry="true" type="Qnx/Elf">neverputt</asset>
        <asset path="${workspace_loc:/SDL/Device-Debug/libSDL.so}" type="Qnx/Elf">lib/libSDL.so</asset>
     </configuration>
     <configuration id="com.qnx.qcc.configuration.exe.release.514599729" name="Device-Release">
        <platformArchitecture>armle-v7</platformArchitecture>
-       <asset path="Device-Release/neverball" entry="true" type="Qnx/Elf">neverball</asset>
+       <asset path="Device-Release/neverputt" entry="true" type="Qnx/Elf">neverputt</asset>
        <asset path="${workspace_loc:/SDL/Device-Release/libSDL.so}" type="Qnx/Elf">lib/libSDL.so</asset>
     </configuration>
     <configuration id="com.qnx.qcc.configuration.exe.profile.801851799" name="Device-Profile">
        <platformArchitecture>armle-v7</platformArchitecture>
-       <asset path="Device-Profile/neverball" entry="true" type="Qnx/Elf">neverball</asset>
+       <asset path="Device-Profile/neverputt" entry="true" type="Qnx/Elf">neverputt</asset>
     </configuration>
     <configuration id="com.qnx.qcc.configuration.exe.profile.coverage.167217180" name="Device-Coverage">
        <platformArchitecture>armle-v7</platformArchitecture>
-       <asset path="Device-Coverage/neverball" entry="true" type="Qnx/Elf">neverball</asset>
+       <asset path="Device-Coverage/neverputt" entry="true" type="Qnx/Elf">neverputt</asset>
     </configuration>
     <configuration id="com.qnx.qcc.configuration.exe.debug.204548567" name="Simulator">
        <platformArchitecture>x86</platformArchitecture>
-       <asset path="Simulator/neverball" entry="true" type="Qnx/Elf">neverball</asset>
+       <asset path="Simulator/neverputt" entry="true" type="Qnx/Elf">neverputt</asset>
        <asset path="${workspace_loc:/SDL/Simulator/libSDL.so}" type="Qnx/Elf">lib/libSDL.so</asset>
     </configuration>
     <configuration id="com.qnx.qcc.configuration.exe.profile.447548987" name="Simulator-Profile">
        <platformArchitecture>x86</platformArchitecture>
-       <asset path="Simulator-Profile/neverball" entry="true" type="Qnx/Elf">neverball</asset>
+       <asset path="Simulator-Profile/neverputt" entry="true" type="Qnx/Elf">neverputt</asset>
     </configuration>
     <configuration id="com.qnx.qcc.configuration.exe.profile.coverage.1897128149" name="Simulator-Coverage">
        <platformArchitecture>x86</platformArchitecture>
-       <asset path="Simulator-Coverage/neverball" entry="true" type="Qnx/Elf">neverball</asset>
+       <asset path="Simulator-Coverage/neverputt" entry="true" type="Qnx/Elf">neverputt</asset>
     </configuration>
     
     <!--  The icon for the application, which should be 86x86. -->

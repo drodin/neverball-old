@@ -179,7 +179,7 @@ static int loop(void)
             break;
 
         case SDL_ACTIVEEVENT:
-            if (e.active.state == SDL_APPINPUTFOCUS)
+            if (e.active.state != SDL_APPINPUTFOCUS)
                 if (e.active.gain == 0 && video_get_grab())
                     goto_pause(&st_over, 0);
             break;
@@ -218,7 +218,11 @@ int main(int argc, char *argv[])
     config_paths(argc > 1 ? argv[1] : NULL);
     fs_mkdir("Screenshots");
 
+#ifndef __TABLET__
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_JOYSTICK) == 0)
+#else
+    if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO) == 0)
+#endif
     {
         config_init();
         config_load();

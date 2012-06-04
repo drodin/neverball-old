@@ -564,6 +564,7 @@ static struct state *st_quit;
 
 #define PAUSE_CONTINUE 1
 #define PAUSE_QUIT     2
+#define PAUSE_SKIP     3
 
 int goto_pause(struct state *s, int e)
 {
@@ -582,12 +583,17 @@ int goto_pause(struct state *s, int e)
 
 static int pause_action(int i)
 {
+	int score = 100;
     audio_play(AUD_MENU, 1.0f);
 
     switch(i)
     {
     case PAUSE_CONTINUE:
         return goto_state(st_continue ? st_continue : &st_title);
+
+    case PAUSE_SKIP:
+    	while (score) { hole_stop(); score--; }
+    	return goto_state(&st_score);
 
     case PAUSE_QUIT:
         return goto_state(st_quit);
@@ -609,6 +615,7 @@ static int pause_enter(struct state *st, struct state *prev)
         if ((jd = gui_harray(id)))
         {
             gui_state(jd, _("Quit"), GUI_SML, PAUSE_QUIT, 0);
+            /*gui_state(jd, _("Skip"), GUI_SML, PAUSE_SKIP, 0);*/
             gui_start(jd, _("Continue"), GUI_SML, PAUSE_CONTINUE, 1);
         }
 
@@ -653,6 +660,8 @@ static int pause_keybd(int c, int d)
 {
     if (d && config_tst_d(CONFIG_KEY_PAUSE, c))
         return pause_action(PAUSE_CONTINUE);
+    if (d && (c == SDLK_s))
+        return pause_action(PAUSE_SKIP);
     return 1;
 }
 
@@ -926,8 +935,25 @@ static void stroke_timer(int id, float dt)
     game_step(g, dt);
 }
 
+#ifdef __TABLET__
+static int stroke = 0;
+static int mskip = 1;
+#endif
+
 static void stroke_point(int id, int x, int y, int dx, int dy)
 {
+#ifdef __TABLET__
+	if (x<50 && y<400 && y>200) {
+		stroke = 1;
+		return;
+	}
+	if (mskip) {
+		mskip = 0;
+		return;
+	}
+	dx = -dx*2;
+	dy =  dy*2;
+#endif
     game_set_rot(dx);
     game_set_mag(dy);
 }
@@ -942,6 +968,13 @@ static void stroke_stick(int id, int a, float v, int bump)
 
 static int stroke_click(int b, int d)
 {
+#ifdef __TABLET__
+	if (!stroke) {
+		mskip = 1;
+		return 1;
+	}
+	stroke = 0;
+#endif
     return (d && b == SDL_BUTTON_LEFT) ? goto_state(&st_roll) : 1;
 }
 
@@ -1110,8 +1143,12 @@ static void stop_timer(int id, float dt)
 
     if (time_state() > 1)
     {
-        if (hole_next())
-            goto_state(&st_next);
+        if (hole_next()) {
+        	if (curr_party()<2)
+                goto_state(&st_stroke);
+        	else
+        		goto_state(&st_next);
+        }
         else
             goto_state(&st_score);
     }
@@ -1122,7 +1159,10 @@ static int stop_click(int b, int d)
     if (b == SDL_BUTTON_LEFT && d == 1)
     {
         if (hole_next())
-            goto_state(&st_next);
+        	if (curr_party()<2)
+                goto_state(&st_stroke);
+        	else
+        		goto_state(&st_next);
         else
             goto_state(&st_score);
     }
@@ -1136,7 +1176,10 @@ static int stop_buttn(int b, int d)
         if (config_tst_d(CONFIG_JOYSTICK_BUTTON_A, b))
         {
             if (hole_next())
-                goto_state(&st_next);
+            	if (curr_party()<2)
+                    goto_state(&st_stroke);
+            	else
+            		goto_state(&st_next);
             else
                 goto_state(&st_score);
         }

@@ -22,6 +22,9 @@
 
 /*---------------------------------------------------------------------------*/
 
+#ifdef __TABLET__
+static int Shud_id;
+#endif
 static int Lhud_id;
 static int Rhud_id;
 static int fps_id;
@@ -39,10 +42,21 @@ void hud_init(void)
     };
     int i = curr_player();
 
+#ifdef __TABLET__
+    if ((Shud_id = gui_vstack(0)))
+    {
+        gui_label(Shud_id, _("  S  "), GUI_SML, GUI_NE, gui_wht,  gui_wht);
+        gui_label(Shud_id, _("  W  "), GUI_SML, 0, gui_wht,  gui_wht);
+        gui_label(Shud_id, _("  I  "), GUI_SML, 0, gui_wht,  gui_wht);
+        gui_label(Shud_id, _("  N  "), GUI_SML, 0, gui_wht,  gui_wht);
+        gui_label(Shud_id, _("  G  "), GUI_SML, GUI_SE, gui_wht,  gui_wht);
+        gui_layout(Shud_id, -1, 0);
+    }
+#endif
     if ((Lhud_id = gui_hstack(0)))
     {
         gui_label(Lhud_id, curr_scr(), GUI_MED, GUI_NE, color[i], gui_wht);
-        gui_label(Lhud_id, _("Score"), GUI_SML, 0,      gui_wht,  gui_wht);
+        gui_label(Lhud_id, _("Shots"), GUI_SML, 0,      gui_wht,  gui_wht);
         gui_layout(Lhud_id, -1, -1);
     }
     if ((Rhud_id = gui_hstack(0)))
@@ -57,6 +71,9 @@ void hud_init(void)
 
 void hud_free(void)
 {
+#ifdef __TABLET__
+    gui_delete(Shud_id);
+#endif
     gui_delete(Lhud_id);
     gui_delete(Rhud_id);
     gui_delete(fps_id);
@@ -87,6 +104,9 @@ void hud_paint(void)
 
     gui_paint(Rhud_id);
     gui_paint(Lhud_id);
+#ifdef __TABLET__
+    gui_paint(Shud_id);
+#endif
 }
 
 /*---------------------------------------------------------------------------*/

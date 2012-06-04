@@ -14,7 +14,7 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" description="" id="com.qnx.qcc.configuration.exe.debug.1537548112" name="Device-Debug" parent="com.qnx.qcc.configuration.exe.debug">
+				<configuration artifactName="neverputt" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" description="" id="com.qnx.qcc.configuration.exe.debug.1537548112" name="Device-Debug" parent="com.qnx.qcc.configuration.exe.debug">
 					<folderInfo id="com.qnx.qcc.configuration.exe.debug.1537548112." name="/" resourcePath="">
 						<toolChain id="com.qnx.qcc.toolChain.exe.debug.99009055" name="QNX QCC" superClass="com.qnx.qcc.toolChain">
 							<option id="com.qnx.qcc.option.cpu.1438120397" name="Target CPU:" superClass="com.qnx.qcc.option.cpu" value="com.qnx.qcc.option.gen.cpu.armle-v7" valueType="enumerated"/>
@@ -75,8 +75,8 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="fs_physfs.c|mapc.c|tilt_loop.c|tilt_wii.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="share"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="ball"/>
+						<entry excluding="fs_physfs.c|mapc.c|tilt_loop.c|tilt_wii.c|cmd.c|item.c|keynames.c|queue.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="share"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="putt"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -93,14 +93,14 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" description="" id="com.qnx.qcc.configuration.exe.release.514599729" name="Device-Release" parent="com.qnx.qcc.configuration.exe.release">
+				<configuration artifactName="neverputt" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release,org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe" description="" id="com.qnx.qcc.configuration.exe.release.514599729" name="Device-Release" parent="com.qnx.qcc.configuration.exe.release">
 					<folderInfo id="com.qnx.qcc.configuration.exe.release.514599729." name="/" resourcePath="">
 						<toolChain id="com.qnx.qcc.toolChain.exe.release.1949088689" name="QNX QCC" superClass="com.qnx.qcc.toolChain">
 							<option id="com.qnx.qcc.option.cpu.2048979911" name="Target CPU:" superClass="com.qnx.qcc.option.cpu" value="com.qnx.qcc.option.gen.cpu.armle-v7" valueType="enumerated"/>
 							<targetPlatform archList="all" binaryParser="com.qnx.tools.ide.qde.core.QDEBynaryParser" id="com.qnx.qcc.targetPlatform.989297485" osList="all" superClass="com.qnx.qcc.targetPlatform"/>
 							<builder buildPath="${workspace_loc:/neverball/Device-Release}" id="com.qnx.nto.1020552350" keepEnvironmentInBuildfile="false" name="CDT Internal Builder" superClass="com.qnx.nto"/>
 							<tool id="com.qnx.qcc.tool.compiler.1058200388" name="QCC Compiler" superClass="com.qnx.qcc.tool.compiler">
-								<option id="com.qnx.qcc.option.compiler.optlevel.1172197209" name="Optimization Level" superClass="com.qnx.qcc.option.compiler.optlevel" value="com.qnx.qcc.option.compiler.optlevel.2" valueType="enumerated"/>
+								<option id="com.qnx.qcc.option.compiler.optlevel.1172197209" name="Optimization Level" superClass="com.qnx.qcc.option.compiler.optlevel" value="com.qnx.qcc.option.compiler.optlevel.1" valueType="enumerated"/>
 								<option id="com.qnx.qcc.option.compiler.security.1338251683" name="Enhanced Security (-fstack-protector-all)" superClass="com.qnx.qcc.option.compiler.security" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.compiler.defines.1130243753" name="Defines (-D)" superClass="com.qnx.qcc.option.compiler.defines" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="_FORTIFY_SOURCE=2"/>
@@ -156,8 +156,8 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="fs_physfs.c|mapc.c|tilt_loop.c|tilt_wii.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="share"/>
-						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="ball"/>
+						<entry excluding="fs_physfs.c|mapc.c|tilt_loop.c|tilt_wii.c|cmd.c|item.c|keynames.c|queue.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="share"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="putt"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
