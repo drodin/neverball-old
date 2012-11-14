@@ -98,6 +98,9 @@ static int loop(void)
 
         switch (e.type)
         {
+#ifdef __PLAYBOOK__
+        if (e.button.button == 1)
+#endif
         case SDL_MOUSEMOTION:
             st_point(+e.motion.x,
                      -e.motion.y + config_get_d(CONFIG_HEIGHT),
@@ -106,11 +109,31 @@ static int loop(void)
             break;
 
         case SDL_MOUSEBUTTONDOWN:
+#ifdef __PLAYBOOK__
+            if (e.button.button == 1) {
+            st_point(+e.motion.x,
+                     -e.motion.y + config_get_d(CONFIG_HEIGHT),
+                     +e.motion.xrel,
+                     -e.motion.yrel);
             d = st_click(e.button.button, 1);
+            }
+#else
+            d = st_click(e.button.button, 1);
+#endif
             break;
 
         case SDL_MOUSEBUTTONUP:
+#ifdef __PLAYBOOK__
+            if (e.button.button == 1) {
+            st_point(+e.motion.x,
+                     -e.motion.y + config_get_d(CONFIG_HEIGHT),
+                     +e.motion.xrel,
+                     -e.motion.yrel);
             d = st_click(e.button.button, 0);
+            }
+#else
+            d = st_click(e.button.button, 0);
+#endif
             break;
 
         case SDL_KEYDOWN:
