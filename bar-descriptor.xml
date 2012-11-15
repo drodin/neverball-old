@@ -55,7 +55,6 @@
     <configuration id="com.qnx.qcc.configuration.exe.debug.1537548112" name="Device-Debug">
        <platformArchitecture>armle-v7</platformArchitecture>
        <asset path="Device-Debug/neverball" entry="true" type="Qnx/Elf">neverball</asset>
-       <asset path="${workspace_loc:/SDL/Device-Debug/libSDL.so}" type="Qnx/Elf">lib/libSDL.so</asset>
     </configuration>
     <configuration id="com.qnx.qcc.configuration.exe.release.514599729" name="Device-Release">
        <platformArchitecture>armle-v7</platformArchitecture>

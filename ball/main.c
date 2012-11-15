@@ -179,6 +179,9 @@ static int loop(void)
             return 0;
 
         case SDL_MOUSEMOTION:
+#ifdef __PLAYBOOK__
+        	if (e.button.button == 1)
+#endif
             st_point(+e.motion.x,
                      -e.motion.y + config_get_d(CONFIG_HEIGHT),
                      +e.motion.xrel,
@@ -187,11 +190,33 @@ static int loop(void)
             break;
 
         case SDL_MOUSEBUTTONDOWN:
+#ifdef __PLAYBOOK__
+        	if (e.button.button == 1) {
+			st_point(+e.motion.x,
+					 -e.motion.y + config_get_d(CONFIG_HEIGHT),
+					 +e.motion.xrel,
+					 config_get_d(CONFIG_MOUSE_INVERT)
+					 ? +e.motion.yrel : -e.motion.yrel);
             d = st_click(e.button.button, 1);
+        	}
+#else
+            d = st_click(e.button.button, 1);
+#endif
             break;
 
         case SDL_MOUSEBUTTONUP:
+#ifdef __PLAYBOOK__
+        	if (e.button.button == 1) {
+			st_point(+e.motion.x,
+					 -e.motion.y + config_get_d(CONFIG_HEIGHT),
+					 +e.motion.xrel,
+					 config_get_d(CONFIG_MOUSE_INVERT)
+					 ? +e.motion.yrel : -e.motion.yrel);
             d = st_click(e.button.button, 0);
+        	}
+#else
+            d = st_click(e.button.button, 0);
+#endif
             break;
 
         case SDL_KEYDOWN:
