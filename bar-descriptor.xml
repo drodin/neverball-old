@@ -22,7 +22,7 @@
 
     <!-- Fourth digit segment of the package version. First three segments are taken from the 
          <versionNumber> element.  Must be an integer from 0 to 2^16-1 -->
-    <buildId>3</buildId>
+    <buildId>4</buildId>
                  
     <!-- A string value (such as "v1", "2.5", or "Alpha 1") that represents the version of the application, as it should be shown to users. Optional. -->
     <!-- <versionLabel></versionLabel> -->
@@ -52,6 +52,7 @@
     <category>core.games</category>
     <asset path="icon.png">icon.png</asset>
     <asset path="data_ball">data</asset>
+    <asset path="icon150.png">icon150.png</asset>
     <configuration id="com.qnx.qcc.configuration.exe.debug.1537548112" name="Device-Debug">
        <platformArchitecture>armle-v7</platformArchitecture>
        <asset path="Device-Debug/neverball" entry="true" type="Qnx/Elf">neverball</asset>
@@ -86,13 +87,14 @@
     <!--  The icon for the application, which should be 86x86. -->
     <icon>
         <image>icon.png</image>
+        <image>icon150.png</image>
     </icon>
     
     <!--  The splash screen that will appear when your application is launching. Should be 1024x600. -->
     <!-- <splashscreen></splashscreen> -->
 
     <!-- Request permission to execute native code.  Required for native applications. -->
-    <action system="true">run_native</action>
+    <permission system="true">run_native</permission>
     
     <!--  The permissions requested by your application. -->
     <!--  <action>access_shared</action> -->

@@ -129,6 +129,7 @@
 							<tool id="com.qnx.qcc.tool.linker.377554557" name="QCC Linker" superClass="com.qnx.qcc.tool.linker">
 								<option id="com.qnx.qcc.option.linker.libraries.1750810170" name="Libraries (-l)" superClass="com.qnx.qcc.option.linker.libraries" valueType="libs">
 									<listOptionValue builtIn="false" value="bps"/>
+									<listOptionValue builtIn="false" value="m"/>
 									<listOptionValue builtIn="false" value="SDL"/>
 									<listOptionValue builtIn="false" value="png"/>
 									<listOptionValue builtIn="false" value="jpeg"/>
@@ -260,7 +261,7 @@
 							</tool>
 							<tool id="com.qnx.qcc.tool.linker.4205359" name="QCC Linker" superClass="com.qnx.qcc.tool.linker">
 								<option id="com.qnx.qcc.option.linker.debug.933116617" name="Debug (-g)" superClass="com.qnx.qcc.option.linker.debug" value="true" valueType="boolean"/>
-								<option id="com.qnx.qcc.option.linker.coverage.715197840" name="Build for Code Coverage (-ftest-coverage -fprofile-arcs -p)" superClass="com.qnx.qcc.option.linker.coverage" value="true" valueType="boolean"/>
+								<option id="com.qnx.qcc.option.linker.coverage.715197840" name="Build for Code Coverage (-ftest-coverage -fprofile-arcs)" superClass="com.qnx.qcc.option.linker.coverage" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.linker.libraries.1881618473" name="Libraries (-l)" superClass="com.qnx.qcc.option.linker.libraries" valueType="libs">
 									<listOptionValue builtIn="false" value="bps"/>
 								</option>
@@ -320,6 +321,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Tremor/trunk}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/libogg/trunk/include}&quot;"/>
 								</option>
+								<option id="com.qnx.qcc.option.compiler.optlevel.1962029916" name="Optimization Level" superClass="com.qnx.qcc.option.compiler.optlevel" value="com.qnx.qcc.option.compiler.optlevel.2" valueType="enumerated"/>
 								<inputType id="com.qnx.qcc.inputType.compiler.272605451" superClass="com.qnx.qcc.inputType.compiler"/>
 							</tool>
 							<tool id="com.qnx.qcc.tool.assembler.1864546834" name="QCC Assembler" superClass="com.qnx.qcc.tool.assembler">
@@ -330,6 +332,7 @@
 								<option id="com.qnx.qcc.option.linker.debug.1797869511" name="Debug (-g)" superClass="com.qnx.qcc.option.linker.debug" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.linker.libraries.1696655127" name="Libraries (-l)" superClass="com.qnx.qcc.option.linker.libraries" valueType="libs">
 									<listOptionValue builtIn="false" value="bps"/>
+									<listOptionValue builtIn="false" value="m"/>
 									<listOptionValue builtIn="false" value="SDL"/>
 									<listOptionValue builtIn="false" value="png"/>
 									<listOptionValue builtIn="false" value="jpeg"/>
@@ -457,7 +460,7 @@
 							</tool>
 							<tool id="com.qnx.qcc.tool.linker.387474249" name="QCC Linker" superClass="com.qnx.qcc.tool.linker">
 								<option id="com.qnx.qcc.option.linker.debug.1505217503" name="Debug (-g)" superClass="com.qnx.qcc.option.linker.debug" value="true" valueType="boolean"/>
-								<option id="com.qnx.qcc.option.linker.coverage.1091078736" name="Build for Code Coverage (-ftest-coverage -fprofile-arcs -p)" superClass="com.qnx.qcc.option.linker.coverage" value="true" valueType="boolean"/>
+								<option id="com.qnx.qcc.option.linker.coverage.1091078736" name="Build for Code Coverage (-ftest-coverage -fprofile-arcs)" superClass="com.qnx.qcc.option.linker.coverage" value="true" valueType="boolean"/>
 								<option id="com.qnx.qcc.option.linker.libraries.1005396960" name="Libraries (-l)" superClass="com.qnx.qcc.option.linker.libraries" valueType="libs">
 									<listOptionValue builtIn="false" value="bps"/>
 								</option>

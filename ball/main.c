@@ -490,6 +490,11 @@ int main(int argc, char *argv[])
     config_init();
     config_load();
 
+#ifdef __PLAYBOOK__
+    config_set_d(CONFIG_WIDTH, atoi(getenv("WIDTH")));
+    config_set_d(CONFIG_HEIGHT, atoi(getenv("HEIGHT")));
+#endif
+
     /* Initialize joystick. */
 
     if (config_get_d(CONFIG_JOYSTICK) && SDL_NumJoysticks() > 0)
