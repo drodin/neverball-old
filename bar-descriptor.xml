@@ -22,7 +22,7 @@
 
     <!-- Fourth digit segment of the package version. First three segments are taken from the 
          <versionNumber> element.  Must be an integer from 0 to 2^16-1 -->
-    <buildId>2</buildId>
+    <buildId>3</buildId>
                  
     <!-- A string value (such as "v1", "2.5", or "Alpha 1") that represents the version of the application, as it should be shown to users. Optional. -->
     <!-- <versionLabel></versionLabel> -->
@@ -52,6 +52,7 @@
     <category>core.games</category>
     <asset path="icon.png">icon.png</asset>
     <asset path="data_putt">data</asset>
+    <asset path="icon150.png">icon150.png</asset>
     <configuration id="com.qnx.qcc.configuration.exe.debug.1537548112" name="Device-Debug">
        <platformArchitecture>armle-v7</platformArchitecture>
        <asset path="Device-Debug/neverputt" entry="true" type="Qnx/Elf">neverputt</asset>
@@ -64,36 +65,37 @@
     </configuration>
     <configuration id="com.qnx.qcc.configuration.exe.profile.801851799" name="Device-Profile">
        <platformArchitecture>armle-v7</platformArchitecture>
-       <asset path="Device-Profile/neverputt" entry="true" type="Qnx/Elf">neverputt</asset>
+       <asset path="Device-Profile/neverball" entry="true" type="Qnx/Elf">neverball</asset>
     </configuration>
     <configuration id="com.qnx.qcc.configuration.exe.profile.coverage.167217180" name="Device-Coverage">
        <platformArchitecture>armle-v7</platformArchitecture>
-       <asset path="Device-Coverage/neverputt" entry="true" type="Qnx/Elf">neverputt</asset>
+       <asset path="Device-Coverage/neverball" entry="true" type="Qnx/Elf">neverball</asset>
     </configuration>
     <configuration id="com.qnx.qcc.configuration.exe.debug.204548567" name="Simulator">
        <platformArchitecture>x86</platformArchitecture>
-       <asset path="Simulator/neverputt" entry="true" type="Qnx/Elf">neverputt</asset>
        <asset path="${workspace_loc:/SDL/Simulator/libSDL.so}" type="Qnx/Elf">lib/libSDL.so</asset>
+       <asset path="Simulator/neverputt" entry="true" type="Qnx/Elf">neverputt</asset>
     </configuration>
     <configuration id="com.qnx.qcc.configuration.exe.profile.447548987" name="Simulator-Profile">
        <platformArchitecture>x86</platformArchitecture>
-       <asset path="Simulator-Profile/neverputt" entry="true" type="Qnx/Elf">neverputt</asset>
+       <asset path="Simulator-Profile/neverball" entry="true" type="Qnx/Elf">neverball</asset>
     </configuration>
     <configuration id="com.qnx.qcc.configuration.exe.profile.coverage.1897128149" name="Simulator-Coverage">
        <platformArchitecture>x86</platformArchitecture>
-       <asset path="Simulator-Coverage/neverputt" entry="true" type="Qnx/Elf">neverputt</asset>
+       <asset path="Simulator-Coverage/neverball" entry="true" type="Qnx/Elf">neverball</asset>
     </configuration>
     
     <!--  The icon for the application, which should be 86x86. -->
     <icon>
         <image>icon.png</image>
+        <image>icon150.png</image>
     </icon>
     
     <!--  The splash screen that will appear when your application is launching. Should be 1024x600. -->
     <!-- <splashscreen></splashscreen> -->
 
     <!-- Request permission to execute native code.  Required for native applications. -->
-    <action system="true">run_native</action>
+    <permission system="true">run_native</permission>
     
     <!--  The permissions requested by your application. -->
     <!--  <action>access_shared</action> -->

@@ -250,6 +250,11 @@ int main(int argc, char *argv[])
         config_init();
         config_load();
 
+#ifdef __PLAYBOOK__
+    config_set_d(CONFIG_WIDTH, atoi(getenv("WIDTH")));
+    config_set_d(CONFIG_HEIGHT, atoi(getenv("HEIGHT")));
+#endif
+
         /* Cache Neverball's camera setting. */
 
         camera = config_get_d(CONFIG_CAMERA);
