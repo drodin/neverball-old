@@ -22,7 +22,7 @@
 
     <!-- Fourth digit segment of the package version. First three segments are taken from the 
          <versionNumber> element.  Must be an integer from 0 to 2^16-1 -->
-    <buildId>3</buildId>
+    <buildId>6</buildId>
                  
     <!-- A string value (such as "v1", "2.5", or "Alpha 1") that represents the version of the application, as it should be shown to users. Optional. -->
     <!-- <versionLabel></versionLabel> -->
@@ -51,8 +51,8 @@
     <!--  The category where the application appears. Either core.games or core.media. -->
     <category>core.games</category>
     <asset path="icon.png">icon.png</asset>
+    <asset path="icon_big.png">icon_big.png</asset>
     <asset path="data_putt">data</asset>
-    <asset path="icon150.png">icon150.png</asset>
     <configuration id="com.qnx.qcc.configuration.exe.debug.1537548112" name="Device-Debug">
        <platformArchitecture>armle-v7</platformArchitecture>
        <asset path="Device-Debug/neverputt" entry="true" type="Qnx/Elf">neverputt</asset>
@@ -88,7 +88,7 @@
     <!--  The icon for the application, which should be 86x86. -->
     <icon>
         <image>icon.png</image>
-        <image>icon150.png</image>
+        <image>icon_big.png</image>
     </icon>
     
     <!--  The splash screen that will appear when your application is launching. Should be 1024x600. -->

@@ -943,7 +943,7 @@ static int mskip = 1;
 static void stroke_point(int id, int x, int y, int dx, int dy)
 {
 #ifdef __TABLET__
-	if (x<50 && y<400 && y>200) {
+	if (x<50*config_get_d(CONFIG_WIDTH)/1024 && y<400*config_get_d(CONFIG_HEIGHT)/600 && y>200*config_get_d(CONFIG_HEIGHT)/600) {
 		stroke = 1;
 		return;
 	}
